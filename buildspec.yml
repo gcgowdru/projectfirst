@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing source dependencies..."
+      - npm install  # if using npm to manage packages
+      
+  pre_build:
+    commands:
+      - echo "Pre-build stage..."
+
+  build:
+    commands:
+      - echo "Build started..."
+      - npm run build  # if you have a build script in your package.json
+
+  post_build:
+    commands:
+      - echo "Build completed."
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist/'  # adjust this to where your build outputs files if applicable
+
+cache:
+  paths:
+    - 'node_modules/**/*'
